@@ -349,6 +349,15 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208290823464_test1.cs" />
+    <Compile Include="Migrations\202208290823464_test1.Designer.cs">
+      <DependentUpon>202208290823464_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208291226593_test2.cs" />
+    <Compile Include="Migrations\202208291226593_test2.designer.cs">
+      <DependentUpon>202208291226593_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Cart_Item.cs" />
@@ -422,6 +431,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202208290823464_test1.resx">
+      <DependentUpon>202208290823464_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208291226593_test2.resx">
+      <DependentUpon>202208291226593_test2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

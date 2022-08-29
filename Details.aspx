@@ -3,7 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <!DOCTYPE html>
 
-
+      <%if (Session["Message"] != null)
+            {
+                BookStore.Models.ToastrNotifications notifications = (BookStore.Models.ToastrNotifications)Session["Message"];
+                Response.Write("<script>toastr." + notifications.Type + "('" + notifications.Message + "');</script>");
+                notifications = null;
+                Session["Message"] = notifications;
+            } %>
 
     <div>
         <div class="card">
@@ -30,7 +36,7 @@
             <div class="card-footer">
                 <div style="float: right">
                     <asp:Button CssClass="btn btn-default" runat="server" ID="btnBack" OnClick="btnBack_Click" Text="BACK TO HOME"></asp:Button>
-                    <asp:Button runat="server" ID="btnCart" CssClass="btn btn-primary" Text="ADD TO CART"></asp:Button>
+                    <asp:Button runat="server" ID="btnCart" CssClass="btn btn-primary" Text="ADD TO CART" OnClick="btnCart_Click"></asp:Button>
                 </div>
 
             </div>

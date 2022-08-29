@@ -10,35 +10,28 @@
         <div class="col-lg-8">
             <hr />
             <div class="cardItems">
-                <asp:Repeater runat="server" ID="Repeater1" DataSourceID="SqlDataSource1">
+                <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
-                        <div class="row">
-                            <div class="col">
-                                <img src="Uploaded/error-image.png" alt="Alternate Text" />
-                            </div>
-                            <div class="col cardItem">
-                                <asp:Label Text="Titasbdmasbdhadaghasdgbhjadle" ID="labelTitle" runat="server" />
-                                <asp:Label Text="Author" ID="labelAuthor" runat="server" />
-                                <asp:Label Text="In Stock" ID="labelStock" runat="server" />
-                            </div>
-                            <div class="col-2 cardItem">
-                                <asp:Label Text="Quantity" runat="server" />
-                                <asp:TextBox TextMode="Number" runat="server" minValue="1" value="1"></asp:TextBox>
-                            </div>
-                            <div class="col cardItem">
-                                <asp:Label Text="Total" runat="server" />
-                                <asp:Label Text="$320" ID="labelTotal" runat="server" />
+                        &nbsp
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="Uploaded/<%#DataBinder.Eval(Container,"DataItem.Title") %>-<%#DataBinder.Eval(Container,"DataItem.Author") %>.jpeg" alt="Alternate Text" style="width: 7rem;" />
+                                    </div>
+                                    <div class="col">
+                                        <h3><%#DataBinder.Eval(Container,"DataItem.Title") %></h3>
+                                        <h6><%#DataBinder.Eval(Container,"DataItem.Author") %></h6>
+                                        <p>Price: <%#DataBinder.Eval(Container,"DataItem.Price") %></p>
+                                    </div>
+                                    <div class="col">
+                                        <asp:Button Text="Remove" ID="Remove" CssClass="btn btn-danger" runat="server" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-
-
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationContext %>" SelectCommand="SELECT * FROM [Cart_Item] WHERE ([Sessionid] = @Sessionid)">
-                    <SelectParameters>
-                        <asp:SessionParameter Name="Sessionid" SessionField="LoggedInUser" Type="Int32" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
 
 
             </div>
@@ -53,27 +46,27 @@
             </div>
             <div class="row">
                 <div class="col" style="padding-left: 1rem; padding-right: 0;">
-                    <asp:TextBox runat="server" CssClass="promo" />
+                    <asp:TextBox runat="server" ID="txt_Promo" CssClass="promo" />
                 </div>
                 <div class="col" style="padding: 0">
-                    <asp:Button Text="text" runat="server" CssClass="btn btn-dark btnPromo" />
+                    <asp:Button Text="Check" runat="server" CssClass="btn btn-dark btnPromo" ID="Promo" OnClick="Promo_Click" />
                 </div>
             </div>
             <div class="ChecoutItems">
                 <label>Shipping Coast</label>
-                <asp:Label Text="12$" runat="server" />
+                <asp:Label ID="txt_Shipping"  Text="12$" runat="server" />
             </div>
             <div class="ChecoutItems">
                 <label>Discount</label>
-                <asp:Label Text="-0$" runat="server" />
+                <asp:Label Text="-0$"  ID="txt_Discount" runat="server" />
             </div>
             <div class="ChecoutItems">
                 <label>Tax</label>
-                <asp:Label Text="12$" runat="server" />
+                <asp:Label Text="12$" ID="txt_Tax" runat="server" />
             </div>
             <div class="ChecoutItems">
                 <label>Total</label>
-                <asp:Label Text="120$" runat="server" />
+                <asp:Label Text="120$" ID="txt_Total" runat="server" />
             </div>
             <div>
                 <asp:Button Text="Checkout" runat="server" CssClass="btn btn-warning btnCheckout" ForeColor="white" />
