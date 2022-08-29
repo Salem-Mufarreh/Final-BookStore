@@ -53,7 +53,7 @@
                         <a class="nav-link" href="Home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
+                        <a class="nav-link" href="Cart">Cart</a>
                     </li>
 
 
@@ -63,7 +63,7 @@
                             if (user.Role == BookStore.Models.SD.Admin)
                             {
                     %>
-                                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="UserProfile">Profile</a></li>
                                 <li class="nav-item"><a class="nav-link" href="Users">Users</a></li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Books</a>
@@ -82,7 +82,7 @@
             {
                 BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
                 %>
-                <li class="nav-item"><a href="#"class="nav-link" ><span class="glyphicon glyphicon-user" onclick=""></span><% Response.Write(user.UserName); %></a></li>
+                <li class="nav-item"><a href="UserProfile"class="nav-link" ><span class="glyphicon glyphicon-user" onclick=""></span><% Response.Write(user.UserName); %></a></li>
                 <li class="nav-item"> <asp:LinkButton Text="Logout" runat="server" ID="logoutbtn" OnClick="logoutbtn_Click" CssClass="nav-link"/></li>
         <%      
             }
@@ -90,7 +90,7 @@
             {
                 %>
               <li class="nav-item"><a href="Signup" class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li class="nav-item"><a href="Views/LogIn"class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li class="nav-item"><a href="LogIn"class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <%
             }
            %>
